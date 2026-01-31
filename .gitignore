@@ -189,7 +189,21 @@ temp/
 # Mantener documentación del template
 !/README.md
 !/CHANGELOG.md
-!/plans/*.md
+
+# ============================================
+# Documentación interna del desarrollo
+# (no incluir en el template público)
+# ============================================
+
+# Documentación del desarrollo del template
+RESUMEN_IMPLEMENTACION.md
+CONFIGURACION_GITHUB_TEMPLATE.md
+plans/arquitectura-template-reutilizable.md
+plans/plan-implementacion-template-lmb.md
+plans/limpieza-template.md
+
+# Screenshots temporales
+screenshots/
 
 # ============================================
 # Notas
@@ -199,3 +213,4 @@ temp/
 # 1. TEMPLATE: Commitear estructura, modes, skills, templates
 # 2. PROYECTOS: Excluir artefactos específicos de cada cliente
 # 3. SEGURIDAD: Nunca commitear credenciales ni datos sensibles
+# 4. LIMPIEZA: Excluir documentación interna del desarrollo del template
