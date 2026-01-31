@@ -102,68 +102,42 @@ ultima_actualizacion: YYYY-MM-DD
 
 ---
 
-### Fase 2: Planificación (SEO + URLs)
+### Fase 2a: Planificación Inicial (URLs e intenciones)
 
-**Estado**: [ ] Pendiente / [ ] En curso / [ ] Completa / [ ] Bloqueada  
-**Responsable**: Planificador  
-**Fecha inicio**: [YYYY-MM-DD]  
+**Estado**: [ ] Pendiente / [ ] En curso / [ ] Completa / [ ] Bloqueada
+**Responsable**: Planificador
+**Fecha inicio**: [YYYY-MM-DD]
 **Fecha fin**: [YYYY-MM-DD o Estimada]
 
 **Tareas**:
 - [ ] Keyword research completado
-- [ ] CSV con columnas obligatorias creado
-- [ ] Todas las URLs con template asignado
+- [ ] CSV inicial con columnas obligatorias creado
+- [ ] Páginas estáticas con template `page` asignado
+- [ ] URLs dinámicas marcadas como `[POR_DEFINIR]`
 - [ ] Requisitos de conversión definidos
 - [ ] CTAs específicos por URL
 
 **Artefactos**:
-- `docs/planificacion-urls.csv` (estado: [vigente/requiere_revision])
+- `docs/planificacion-urls-inicial.csv` (estado: [vigente/requiere_revision])
 
-**Dependencias**: Fase 1 completa  
-**Bloquea a**: Fase 3, Fase 5
+**Dependencias**: Fase 1 completa
+**Bloquea a**: Fase 4
 
 **Validación**:
 - [ ] Ratio keywords/URLs ≥ 1.5:1
 - [ ] 100% servicios con URL destino
 - [ ] Columnas obligatorias presentes
+- [ ] Templates estáticos definidos, dinámicos marcados [POR_DEFINIR]
 
-**Notas**: [Keywords principales, oportunidades SEO detectadas]
-
----
-
-### Fase 3: Wireframing
-
-**Estado**: [ ] Pendiente / [ ] En curso / [ ] Completa / [ ] Bloqueada  
-**Responsable**: Wireframer  
-**Fecha inicio**: [YYYY-MM-DD]  
-**Fecha fin**: [YYYY-MM-DD o Estimada]
-
-**Tareas**:
-- [ ] Wireframes de templates críticos creados
-- [ ] Camino al CTA definido por template
-- [ ] Notas semánticas HTML incluidas
-- [ ] Notas para copywriter incluidas
-
-**Artefactos**:
-- `docs/wireframes.md` (estado: [vigente/requiere_revision])
-
-**Dependencias**: Fase 2 completa  
-**Bloquea a**: Fase 5, Fase 10
-
-**Validación**:
-- [ ] Templates críticos tienen wireframe
-- [ ] Camino al CTA definido
-- [ ] Estructura HTML documentada
-
-**Notas**: [Decisiones de UX importantes]
+**Notas**: [Keywords principales, oportunidades SEO detectadas. Templates se completarán en Fase 2b]
 
 ---
 
 ### Fase 4: Definición de Stack
 
-**Estado**: [ ] Pendiente / [ ] En curso / [ ] Completa / [ ] Bloqueada  
-**Responsable**: Implementador  
-**Fecha inicio**: [YYYY-MM-DD]  
+**Estado**: [ ] Pendiente / [ ] En curso / [ ] Completa / [ ] Bloqueada
+**Responsable**: Implementador
+**Fecha inicio**: [YYYY-MM-DD]
 **Fecha fin**: [YYYY-MM-DD o Estimada]
 
 **Tareas**:
@@ -171,18 +145,19 @@ ultima_actualizacion: YYYY-MM-DD
 - [ ] Plugin propio definido
 - [ ] Regla WooCommerce aplicada (si transaccional)
 - [ ] Plugins complementarios seleccionados
+- [ ] 🆕 Si usa JetEngine, configurar MCP (opcional)
 
 **Artefactos**:
 - `docs/stack.md` (estado: [vigente/requiere_revision])
 
-**Dependencias**: Fases 1, 2, 3 completas  
-**Bloquea a**: Fase 5, Fase 8
+**Dependencias**: Fase 1, Fase 2a completas
+**Bloquea a**: Fase 5
 
 **Validación**:
 - [ ] Stack justificado según proyecto
 - [ ] Si transaccional, WooCommerce incluido
 - [ ] Plugin propio definido
-- [ ] Sistema CPT/CCT claro
+- [ ] Sistema CPT/CCT claro (JetEngine o código)
 
 **Notas**: [Decisiones técnicas críticas]
 
@@ -190,9 +165,9 @@ ultima_actualizacion: YYYY-MM-DD
 
 ### Fase 5: Arquitectura
 
-**Estado**: [ ] Pendiente / [ ] En curso / [ ] Completa / [ ] Bloqueada  
-**Responsable**: Arquitecto  
-**Fecha inicio**: [YYYY-MM-DD]  
+**Estado**: [ ] Pendiente / [ ] En curso / [ ] Completa / [ ] Bloqueada
+**Responsable**: Arquitecto
+**Fecha inicio**: [YYYY-MM-DD]
 **Fecha fin**: [YYYY-MM-DD o Estimada]
 
 **Tareas**:
@@ -201,12 +176,13 @@ ultima_actualizacion: YYYY-MM-DD
 - [ ] Campos personalizados definidos
 - [ ] Relaciones documentadas
 - [ ] 4 reglas obligatorias aplicadas
+- [ ] 🆕 Si MCP JetEngine activo, crear estructura vía API (opcional)
 
 **Artefactos**:
 - `docs/arquitectura.md` (estado: [vigente/requiere_revision])
 
-**Dependencias**: Fases 1, 2, 3, 4 completas  
-**Bloquea a**: Fase 7, Fase 8
+**Dependencias**: Fase 1, Fase 2a, Fase 4 completas
+**Bloquea a**: Fase 2b, Fase 7, Fase 8
 
 **Validación**:
 - [ ] Nombres según dominio (no genéricos)
@@ -215,6 +191,68 @@ ultima_actualizacion: YYYY-MM-DD
 - [ ] Si transaccional, WooCommerce base
 
 **Notas**: [Decisiones de estructura de datos críticas]
+
+---
+
+### Fase 2b: Planificación Completa (Templates finales)
+
+**Estado**: [ ] Pendiente / [ ] En curso / [ ] Completa / [ ] Bloqueada
+**Responsable**: Planificador
+**Fecha inicio**: [YYYY-MM-DD]
+**Fecha fin**: [YYYY-MM-DD o Estimada]
+
+**Tareas**:
+- [ ] Leer arquitectura.md para conocer entidades
+- [ ] Actualizar CSV reemplazando [POR_DEFINIR] con templates reales
+- [ ] Mapear CPTs → single-[cpt], archive-[cpt]
+- [ ] Mapear taxonomías → archive-[tax]
+- [ ] Validar 0 templates pendientes
+
+**Artefactos**:
+- `docs/planificacion-urls.csv` (estado: [vigente/requiere_revision]) - Versión FINAL
+
+**Dependencias**: Fase 5 (Arquitectura) completa
+**Bloquea a**: Fase 3 (Wireframing)
+
+**Validación**:
+- [ ] 0 templates marcados como [POR_DEFINIR]
+- [ ] Todos los templates corresponden a arquitectura.md
+- [ ] Ratio keywords/URLs ≥ 1.5:1
+- [ ] 100% servicios con URL destino
+
+**Notas**: [Templates finales mapeados desde arquitectura]
+
+---
+
+### Fase 3: Wireframing
+
+**Estado**: [ ] Pendiente / [ ] En curso / [ ] Completa / [ ] Bloqueada
+**Responsable**: Wireframer
+**Fecha inicio**: [YYYY-MM-DD]
+**Fecha fin**: [YYYY-MM-DD o Estimada]
+
+**Tareas**:
+- [ ] Wireframes de templates críticos creados
+- [ ] Camino al CTA definido por template
+- [ ] Notas semánticas HTML incluidas
+- [ ] Notas para copywriter incluidas
+- [ ] 🆕 Wireframes HTML visuales generados
+
+**Artefactos**:
+- `docs/wireframes.md` (estado: [vigente/requiere_revision])
+- 🆕 `docs/wireframes/*.html` (wireframes visuales)
+- 🆕 `docs/wireframes.css`
+
+**Dependencias**: Fase 2b (Planificación Completa) completa
+**Bloquea a**: Fase 6b, Fase 10
+
+**Validación**:
+- [ ] Templates críticos tienen wireframe
+- [ ] Camino al CTA definido
+- [ ] Estructura HTML documentada
+- [ ] 🆕 Versión HTML generada
+
+**Notas**: [Decisiones de UX importantes]
 
 ---
 
@@ -476,6 +514,38 @@ ultima_actualizacion: YYYY-MM-DD
 - `docs/mejora-continua/backlog.md`
 
 **Dependencias**: Lanzamiento oficial
+
+---
+
+## MCPs Activos
+
+> Model Context Protocol servers configurados para este proyecto
+
+### 🔌 MCP JetEngine
+
+**Estado**: [ ] No configurado / [ ] Configurado / [ ] Activo
+**URL**: [http://localhost/proyecto/wp-json/jet-engine/v1/mcp/]
+**Configurado en Fase**: [4 - Stack]
+
+**Descripción**:
+Permite crear y gestionar CPTs, taxonomías, campos personalizados, relaciones y queries de JetEngine directamente vía API desde Roo Code.
+
+**Requisitos**:
+- [ ] JetEngine incluido en stack.md
+- [ ] Application Password creado en WordPress admin
+- [ ] Token Base64 generado
+- [ ] MCP añadido a configuración de Roo Code
+
+**Usado por**:
+- Arquitecto (crear estructura de datos)
+- Programador (crear queries y relaciones)
+
+**Ventajas**:
+- Implementación de arquitectura 50% más rápida
+- 0 errores de sintaxis en registro de CPTs
+- Iteraciones inmediatas (cambios visibles al instante)
+
+**Notas**: [URL del sitio, fecha de configuración, observaciones]
 
 ---
 

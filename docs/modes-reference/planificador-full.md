@@ -8,7 +8,11 @@ model: anthropic/claude-sonnet-4-5-20250929
 
 ## Función en el Sistema
 
-Traduce la estrategia del negocio a estructura de URLs optimizada para SEO y conversión. Responsable de la planificación completa de intenciones de búsqueda y páginas destino.
+Traduce la estrategia del negocio a estructura de URLs optimizada para SEO y conversión. Responsable de la planificación de intenciones de búsqueda y páginas destino.
+
+**🆕 IMPORTANTE**: La planificación se realiza en **DOS PASADAS** para garantizar coherencia con la arquitectura:
+- **Fase 2a (Inicial)**: Keywords, URLs, templates pendientes marcados
+- **Fase 2b (Completa)**: Actualiza templates con arquitectura definida
 
 ## ⚠️ ADVERTENCIA CRÍTICA: Ejemplos vs Reglas
 
@@ -32,7 +36,23 @@ Traduce la estrategia del negocio a estructura de URLs optimizada para SEO y con
 
 ## Responsabilidades Principales
 
-### 1. Creación de `docs/planificacion-urls.csv`
+**🆕 FLUJO DE DOS PASADAS**:
+
+### Fase 2a: Planificación Inicial
+- Crear `docs/planificacion-urls-inicial.csv`
+- Marcar templates pendientes como `[POR_DEFINIR]`
+
+### Fase 2b: Planificación Completa
+- Actualizar a `docs/planificacion-urls.csv` (final)
+- Reemplazar `[POR_DEFINIR]` con templates de arquitectura.md
+
+---
+
+### 1. Creación del CSV (Dos Versiones)
+
+#### Fase 2a: CSV Inicial
+
+**Archivo**: `docs/planificacion-urls-inicial.csv`
 
 **CSV con columnas OBLIGATORIAS**:
 
@@ -75,16 +95,45 @@ Keywords: "abogado laboralista barcelona", "abogado laboral barcelona", "bufete 
 
 ### 4. Definir Templates WP por URL
 
-**Templates comunes** (adaptar según proyecto):
-- `page` - Páginas estáticas (Inicio, Contacto, Sobre nosotros)
-- `single-[cpt]` - Single de CPT personalizado
-- `archive-[cpt]` - Archivo de CPT
-- `archive-[tax]` - Archivo de taxonomía
-- `single` - Single de post (blog)
-- `archive` - Archivo de blog
+**🆕 CRITERIO PARA FASE 2a (Inicial)**:
+
+**Templates que SÍ se pueden definir**:
+- `page` - Páginas estáticas (Inicio, Contacto, Sobre nosotros, Legal)
+- `single` - Posts de blog estándar
+- `archive` - Archivo de blog estándar
 - `404` - Página de error
 
-**Variables** `[cpt]` y `[tax]` dependen del proyecto (NO son genéricas).
+**Templates que se marcan como `[POR_DEFINIR]`**:
+- URLs dinámicas que requieren CPT: `[POR_DEFINIR-requiere-cpt]`
+- URLs que requieren taxonomía: `[POR_DEFINIR-requiere-taxonomia]`
+- URLs cuyo template depende de decisiones de arquitectura
+
+**Ejemplo de CSV Fase 2a**:
+```csv
+keyword_intencion,url_destino,template_wp,titulo_seo,requisitos_conversion,cta_texto,cta_destino
+"inicio|home","/","page","Restaurante X - Cocina Mediterránea Barcelona","...","Reservar Mesa","/reservas/"
+"contacto","/contacto/","page","Contacto - Restaurante X","...","Enviar mensaje",""
+"nuestros platos","/platos/[slug]/","[POR_DEFINIR-requiere-cpt]","...","...","Reservar","/reservas/"
+"arroces barcelona","/platos/tipo/arroces/","[POR_DEFINIR-requiere-taxonomia]","...","...","Ver arroces",""
+```
+
+**🆕 CRITERIO PARA FASE 2b (Completa)**:
+
+Después de leer [`arquitectura.md`](../../plantillas/arquitectura.template.md), reemplazar `[POR_DEFINIR]` con templates reales:
+
+**Mapeo arquitectura → templates**:
+- CPT: `plato` → `single-plato`, `archive-plato`
+- Taxonomía: `tipo-plato` → `archive-tipo-plato`
+- CPT: `[cualquier-nombre]` → `single-[cualquier-nombre]`
+
+**Ejemplo de CSV Fase 2b**:
+```csv
+keyword_intencion,url_destino,template_wp,titulo_seo,requisitos_conversion,cta_texto,cta_destino
+"inicio|home","/","page","Restaurante X - Cocina Mediterránea Barcelona","...","Reservar Mesa","/reservas/"
+"contacto","/contacto/","page","Contacto - Restaurante X","...","Enviar mensaje",""
+"nuestros platos","/platos/[slug]/","single-plato","...","...","Reservar","/reservas/"
+"arroces barcelona","/platos/tipo/arroces/","archive-tipo-plato","...","...","Ver arroces",""
+```
 
 ### 5. Requisitos de Conversión por Página
 
@@ -139,7 +188,9 @@ Requisitos: "Diferenciación: especialistas en ecommerce (vs generalistas), Pain
 
 ## Protocolo de Trabajo
 
-### 1. Preparación (OBLIGATORIO leer antes)
+### 🆕 FASE 2a: Planificación Inicial
+
+#### 1. Preparación (OBLIGATORIO leer antes)
 
 **Inputs requeridos**:
 - **`docs/estrategia.md`** → servicios/productos, perfiles, pain points, objeciones
@@ -152,7 +203,7 @@ Requisitos: "Diferenciación: especialistas en ecommerce (vs generalistas), Pain
 
 **Si falta estrategia.md**: Solicitar al Jefe de Proyectos que coordine Fase 1 primero.
 
-### 2. Keyword Research
+#### 2. Keyword Research
 
 **Proceso**:
 1. Identificar servicios/productos de estrategia.md
@@ -211,23 +262,117 @@ keyword_intencion,url_destino,template_wp,titulo_seo,requisitos_conversion,cta_t
 
 Documentar en columna `requisitos_conversion`.
 
-### 6. Finalización
+### 6. Finalización Fase 2a
 
 **Antes de entregar**:
-- [ ] CSV con columnas obligatorias completo
+- [ ] CSV inicial con columnas obligatorias completo
 - [ ] Ratio keywords/URLs ≥ 1.5:1
 - [ ] Todos los servicios tienen URL destino
-- [ ] Todas las URLs tienen template asignado
+- [ ] Páginas estáticas con template `page` asignado
+- [ ] URLs dinámicas marcadas como `[POR_DEFINIR]` con tipo
 - [ ] Requisitos de conversión definidos por URL
 - [ ] CTAs específicos (no genéricos)
 
-**Frontmatter estándar** (incluir en archivo .md de documentación):
+**Artefacto a entregar**:
+- `docs/planificacion-urls-inicial.csv`
+
+**Entregar al Jefe de Proyectos** para validación.
+
+**⚠️ SIGUIENTE PASO**: El sistema continuará con Fase 4 (Stack) → Fase 5 (Arquitectura) → Fase 2b (Planificación Completa).
+
+---
+
+### 🆕 FASE 2b: Planificación Completa
+
+**⚠️ Esta fase se ejecuta DESPUÉS de Fase 5 (Arquitectura)**
+
+#### 1. Preparación
+
+**Inputs requeridos**:
+- **`docs/planificacion-urls-inicial.csv`** → CSV creado en Fase 2a
+- **`docs/arquitectura.md`** → CPTs, taxonomías y entidades definidas
+
+**Objetivo**: Reemplazar todos los `[POR_DEFINIR]` con templates reales basados en la arquitectura.
+
+#### 2. Leer Arquitectura
+
+**Extraer de arquitectura.md**:
+- Lista de CPTs definidos (nombre, slug, si tiene archive)
+- Lista de taxonomías (nombre, slug, asociadas a qué CPT)
+- Estructura de URLs según entidades
+
+**Ejemplo de lo que buscar**:
+```markdown
+## CPT: plato
+- slug: plato
+- has_archive: true
+→ Templates: single-plato, archive-plato
+
+## Taxonomía: tipo-plato
+- slug: tipo-plato
+- asociada a: CPT plato
+→ Template: archive-tipo-plato
+```
+
+#### 3. Mapear Templates
+
+**Reglas de mapeo**:
+
+| Situación en CSV Inicial | Entidad en Arquitectura | Template Final |
+|-------------------------|-------------------------|----------------|
+| `[POR_DEFINIR-requiere-cpt]` | CPT: `plato` | `single-plato` |
+| `[POR_DEFINIR-requiere-cpt]` | CPT: `[nombre]` | `single-[nombre]` |
+| `[POR_DEFINIR-requiere-taxonomia]` | Taxonomía: `tipo-plato` | `archive-tipo-plato` |
+| URL tipo `/[cpt]/` | CPT con archive | `archive-[cpt]` |
+| URL tipo `/[cpt]/[slug]/` | CPT con single | `single-[cpt]` |
+| URL tipo `/[cpt]/[tax]/[term]/` | Taxonomía | `archive-[tax]` |
+
+#### 4. Actualizar CSV
+
+**Proceso**:
+1. Abrir `planificacion-urls-inicial.csv`
+2. Por cada fila con `[POR_DEFINIR]`:
+   - Identificar qué entidad de arquitectura.md corresponde
+   - Reemplazar con el template correcto
+3. Guardar como `planificacion-urls.csv` (versión final)
+
+**Ejemplo completo**:
+
+**Antes (Fase 2a)**:
+```csv
+keyword_intencion,url_destino,template_wp,titulo_seo,requisitos_conversion,cta_texto,cta_destino
+"nuestros platos","/platos/[slug]/","[POR_DEFINIR-requiere-cpt]","Platos - Restaurante X","...","Reservar","/reservas/"
+"todos los platos","/platos/","[POR_DEFINIR-requiere-archive-cpt]","Todos los Platos","...","Ver carta","/carta/"
+"arroces barcelona","/platos/tipo/arroces/","[POR_DEFINIR-requiere-taxonomia]","Arroces - Restaurante X","...","Ver arroces",""
+```
+
+**Después (Fase 2b)** - leyendo arquitectura.md:
+```csv
+keyword_intencion,url_destino,template_wp,titulo_seo,requisitos_conversion,cta_texto,cta_destino
+"nuestros platos","/platos/[slug]/","single-plato","Platos - Restaurante X","...","Reservar","/reservas/"
+"todos los platos","/platos/","archive-plato","Todos los Platos","...","Ver carta","/carta/"
+"arroces barcelona","/platos/tipo/arroces/","archive-tipo-plato","Arroces - Restaurante X","...","Ver arroces",""
+```
+
+#### 5. Validación Final
+
+**Antes de entregar**:
+- [ ] **0 templates con `[POR_DEFINIR]`** (todos resueltos)
+- [ ] Todos los templates corresponden a entidades en arquitectura.md
+- [ ] No hay templates inventados (no existen en arquitectura)
+- [ ] CSV con columnas obligatorias completo
+- [ ] Ratio keywords/URLs ≥ 1.5:1 mantenido
+
+**Artefacto final**:
+- `docs/planificacion-urls.csv` (100% completo)
+
+**Frontmatter estándar**:
 ```yaml
 ---
 tipo: planificacion
 estado: vigente
-fase: planificacion
-version: 1
+fase: planificacion-completa
+version: 2
 responsable: planificador
 creado: YYYY-MM-DD
 ultima_revision: YYYY-MM-DD
@@ -237,7 +382,7 @@ impactado_por_evento: false
 ---
 ```
 
-**Entregar al Jefe de Proyectos** para validación.
+**Entregar al Jefe de Proyectos** para validación final.
 
 ---
 

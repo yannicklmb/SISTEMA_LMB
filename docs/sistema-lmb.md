@@ -315,9 +315,11 @@ Cada perfil DEBE incluir (campos obligatorios):
 
 ---
 
-### Fase 2 — Planificación (SEO + conversión por URL)
+### Fase 2a — Planificación Inicial (URLs e intenciones)
 
-**Objetivo**: Traducir estrategia a estructura de URLs y destinos por intención de búsqueda.
+**Objetivo**: Identificar keywords, intenciones de búsqueda y URLs destino, marcando templates que requieren definición de arquitectura.
+
+**⚠️ NUEVO FLUJO**: La planificación se realiza en DOS pasadas para garantizar coherencia con la arquitectura.
 
 **Fuentes de keywords/intenciones:**
 - Keyword research formal (herramientas SEO)
@@ -328,7 +330,7 @@ Cada perfil DEBE incluir (campos obligatorios):
 **Regla de oro**: Cada keyword/intención → asignada a UNA página destino con una URL específica.
 
 **Artefacto principal**:
-- `docs/planificacion-urls.csv`
+- `docs/planificacion-urls-inicial.csv`
 
 **Estructura OBLIGATORIA del CSV (columnas mínimas)**:
 
@@ -336,26 +338,43 @@ Cada perfil DEBE incluir (campos obligatorios):
 |---------|-------------|---------|
 | `keyword_intencion` | Keyword o intención de búsqueda | "abogado laboralista barcelona" |
 | `url_destino` | URL de la página destino | /abogado-laboralista-barcelona/ |
-| `template_wp` | Template WordPress que usará | single-[cpt], archive-[tax], page, etc. |
+| `template_wp` | Template WordPress que usará | page, [POR_DEFINIR-requiere-cpt], etc. |
 | `titulo_seo` | Título optimizado para SEO | "Abogado Laboralista en Barcelona - [Nombre]" |
 | `requisitos_conversion` | Qué debe ver/entender antes del CTA | "Diferenciación: 15 años experiencia, Pain point: despido improcedente, Prueba social: 200+ casos ganados, Fricción resuelta: primera consulta gratis" |
 | `cta_texto` | Texto del Call To Action | "Solicita consulta gratuita" |
 | `cta_destino` | A dónde lleva el CTA | /contacto/, formulario, teléfono, WhatsApp, etc. |
 
-**Nota CRÍTICA**: Este CSV es una pieza central porque gobierna:
-- Arquitectura (qué entidades crear)
-- Wireframes (qué templates diseñar)
-- Diseño (qué páginas necesitan trabajo visual)
-- Contenidos (qué contenido escribir por página)
+**Criterio para templates en Fase 2a**:
+
+**Templates que SÍ se pueden definir**:
+- `page` - Páginas estáticas (Inicio, Contacto, Sobre nosotros, etc.)
+- `404` - Página de error
+- Templates estándar conocidos
+
+**Templates que se marcan como `[POR_DEFINIR]`**:
+- URLs dinámicas que requieren CPT: `[POR_DEFINIR-requiere-cpt]`
+- URLs que requieren taxonomía: `[POR_DEFINIR-requiere-taxonomia]`
+- URLs cuyo template depende de la arquitectura
+
+**Ejemplo de CSV inicial**:
+```csv
+keyword_intencion,url_destino,template_wp,titulo_seo,requisitos_conversion,cta_texto,cta_destino
+"carta restaurante barcelona","/carta/","page","Carta - Restaurante X","...","Ver carta","/carta/"
+"nuestros platos especiales","/platos/[slug]/","[POR_DEFINIR-requiere-cpt]","...","...","Reservar","/reservas/"
+"arroces barcelona","/platos/tipo/arroces/","[POR_DEFINIR-requiere-taxonomia]","...","...","Ver arroces",""
+```
 
 **Responsable**: Planificador
 
 **Validación (Jefe de Proyectos)**:
 - [ ] CSV con columnas obligatorias presente
 - [ ] Ratio keywords/URLs > 1.5:1 (una URL puede atacar varias keywords)
-- [ ] Todas las URLs tienen template asignado
-- [ ] Todas las URLs tienen requisitos de conversión definidos
+- [ ] Páginas estáticas tienen template `page` asignado
+- [ ] URLs dinámicas marcadas como `[POR_DEFINIR]` con tipo documentado
+- [ ] Requisitos de conversión definidos por URL
 - [ ] Todos los servicios de estrategia.md tienen URL destino
+
+**Nota**: Este CSV se completará en **Fase 2b** después de que Arquitectura defina las entidades.
 
 ---
 
@@ -591,6 +610,132 @@ Si el negocio es **ecommerce/suscripciones/transaccional**:
 - [ ] Campos estructurados, mínimo uso de `content`
 - [ ] Si transaccional, WooCommerce como base
 - [ ] Nombres según dominio del negocio (no genéricos)
+
+---
+
+### Fase 2b — Planificación Completa (Templates finales)
+
+**Objetivo**: Completar el CSV de planificación con los templates correctos basados en la arquitectura ya definida.
+
+**⚠️ IMPORTANTE**: Esta fase se ejecuta DESPUÉS de la Fase 5 (Arquitectura), cuando ya se conocen los CPTs, taxonomías y estructura de datos.
+
+**Proceso**:
+
+1. **Leer arquitectura.md** para conocer entidades definidas
+2. **Identificar templates WordPress** según arquitectura:
+   - CPTs definidos → `single-[nombre-cpt]`, `archive-[nombre-cpt]`
+   - Taxonomías definidas → `archive-[nombre-taxonomia]`
+   - Páginas especiales según estructura
+3. **Actualizar CSV** reemplazando `[POR_DEFINIR]` con templates reales
+4. **Validar cobertura 100%** de templates
+
+**Artefacto principal**:
+- `docs/planificacion-urls.csv` (versión final, completa)
+
+**Ejemplo de transformación**:
+
+**CSV Inicial (Fase 2a)**:
+```csv
+"nuestros platos","/platos/[slug]/","[POR_DEFINIR-requiere-cpt]","...","...","Reservar","/reservas/"
+"arroces barcelona","/platos/tipo/arroces/","[POR_DEFINIR-requiere-taxonomia]","...","...","Ver arroces",""
+```
+
+**CSV Final (Fase 2b)** - después de leer arquitectura.md:
+```csv
+"nuestros platos","/platos/[slug]/","single-plato","...","...","Reservar","/reservas/"
+"arroces barcelona","/platos/tipo/arroces/","archive-tipo-plato","...","...","Ver arroces",""
+```
+
+**Mapeo arquitectura → templates**:
+
+| Entidad en arquitectura.md | Template WordPress resultante |
+|----------------------------|------------------------------|
+| CPT: `plato` | `single-plato` (para /platos/[slug]/) |
+| CPT: `plato` con archive | `archive-plato` (para /platos/) |
+| Taxonomía: `tipo-plato` | `archive-tipo-plato` (para /platos/tipo/[term]/) |
+| CPT: `[cualquier-cpt]` | `single-[cualquier-cpt]` |
+
+**Responsable**: Planificador
+
+**Validación (Jefe de Proyectos)**:
+- [ ] CSV con columnas obligatorias presente
+- [ ] **0 templates marcados como `[POR_DEFINIR]`** (todos resueltos)
+- [ ] Ratio keywords/URLs > 1.5:1
+- [ ] Todas las URLs tienen template asignado
+- [ ] Templates corresponden a entidades de arquitectura.md
+- [ ] Todos los servicios de estrategia.md tienen URL destino
+
+**Nota CRÍTICA**: Este CSV final es la pieza central que gobierna:
+- Wireframes (qué templates diseñar)
+- Diseño (qué páginas necesitan trabajo visual)
+- Contenidos (qué contenido escribir por página)
+- Maquetación (qué templates implementar)
+
+---
+
+### Fase 3 — Wireframing
+
+**⚠️ CAMBIO DE ORDEN**: Esta fase ahora se ejecuta DESPUÉS de Fase 2b (Planificación Completa), garantizando que todos los templates estén definidos.
+
+**Objetivo**: Definir jerarquía visual, camino al CTA y estructura semántica HTML.
+
+**Se crean wireframes para templates más importantes** según proyecto. Ejemplos ilustrativos de templates comunes:
+- Inicio (home)
+- Single de `[entidad-principal]` (ej: servicio, producto, propiedad, curso)
+- Archive de `[taxonomía]` o `[entidad]`
+- Single del blog
+- Página de contacto
+- Página de servicios/productos (si aplica)
+
+**Cada wireframe DEBE incluir**:
+
+1. **Jerarquía de elementos**:
+   - Orden de lectura (qué ve primero el usuario)
+   - Tamaños relativos (titular > subtitular > cuerpo)
+
+2. **Camino al CTA**:
+   - Cómo se guía al usuario hacia la conversión
+   - Dónde aparece el CTA
+   - Qué información previa necesita el usuario
+
+3. **Notas para copywriter**:
+   - Qué mensaje comunicar en cada bloque
+   - Qué pain point atacar
+   - Qué objeción resolver
+
+4. **Notas de estructura semántica HTML** (orientada a SEO):
+   - `<header>`, `<footer>`, `<aside>`, `<article>`, `<section>`, `<nav>`
+   - `<ul>`, `<ol>` para listas
+   - `<h1>`, `<h2>`, `<h3>` jerarquía de encabezados
+   - Schema.org recomendado (si aplica: Product, Service, Article, etc.)
+
+**Artefactos**:
+- `docs/wireframes.md` (descripción textual + anotaciones)
+- **🆕 `docs/wireframes/*.html`** (wireframes visuales interactivos)
+- **🆕 `docs/wireframes.css`** (estilos para wireframes HTML)
+- Diagramas complementarios (Mermaid, Excalidraw, o similar)
+
+**🆕 Wireframes Visuales HTML**:
+
+El wireframer ahora genera versiones HTML interactivas de los wireframes usando las plantillas:
+- `docs/plantillas/wireframes-visual.template.html` (plantilla base)
+- `docs/plantillas/wireframes.css` (estilos reutilizables)
+
+**Ventajas de wireframes HTML**:
+- ✅ Visual e intuitivo (muestra proporciones reales)
+- ✅ Mantiene notas técnicas y de copywriting
+- ✅ Camino al CTA visualizado paso a paso
+- ✅ Fácil de presentar a clientes/stakeholders
+- ✅ Responsive (vista móvil y desktop)
+
+**Responsable**: Wireframer
+
+**Validación (Jefe de Proyectos)**:
+- [ ] Templates críticos de planificación tienen wireframe
+- [ ] Cada wireframe define camino al CTA
+- [ ] Estructura semántica HTML documentada
+- [ ] Notas de contenido por bloque presentes
+- [ ] **🆕 Versión HTML generada** para templates principales
 
 ---
 

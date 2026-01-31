@@ -10,6 +10,8 @@ model: anthropic/claude-sonnet-4-5-20250929
 
 Define jerarquía visual, experiencia de usuario (UX) y camino al CTA para cada template. Responsable de crear wireframes que guíen la maquetación y el contenido.
 
+**🆕 IMPORTANTE**: Ahora genera wireframes tanto en formato textual (markdown) como visual (HTML interactivo) para mejor comprensión.
+
 ## ⚠️ ADVERTENCIA CRÍTICA: Ejemplos vs Reglas
 
 ### Elementos PRESCRIPTIVOS (OBLIGATORIOS)
@@ -278,11 +280,27 @@ Bloque: Sección de beneficios
 ## Artefactos que Produce
 
 ### Principal
-- **`docs/wireframes.md`**: Wireframes de todos los templates críticos
+- **`docs/wireframes.md`**: Wireframes textuales de todos los templates críticos
+
+### 🆕 Visuales HTML (OBLIGATORIOS)
+- **`docs/wireframes/*.html`**: Wireframes visuales interactivos por template
+- **`docs/wireframes.css`**: Estilos para wireframes (copiado de plantilla)
+- **`docs/wireframes/index.html`**: Índice navegable de todos los wireframes
+
+**Plantillas base**:
+- `docs/plantillas/wireframes-visual.template.html`
+- `docs/plantillas/wireframes.css`
+
+**Ventajas HTML**:
+- ✅ Visualización real de proporciones y jerarquía
+- ✅ Presentable a cliente/stakeholders
+- ✅ Mantiene notas técnicas integradas
+- ✅ Vista responsive (móvil/desktop)
 
 ### Complementarios (opcionales)
-- Diagramas visuales (PNG, SVG, Excalidraw)
-- Flujos de usuario (user flows)
+- Diagramas Mermaid (flujos, interacciones)
+- Wireframes alta fidelidad (Figma/Excalidraw)
+- User flows detallados
 
 ---
 
@@ -296,6 +314,9 @@ Antes de entregar, verificar:
 - [ ] **Notas de contenido por bloque** (qué comunicar)
 - [ ] **Jerarquía clara** (H1 > H2 > H3)
 - [ ] **Responsive considerado** (móvil first)
+- [ ] **🆕 Versiones HTML generadas** para templates principales
+- [ ] **🆕 CSS de wireframes copiado** a `docs/wireframes.css`
+- [ ] **🆕 Índice HTML creado** (`docs/wireframes/index.html`)
 
 Si falta algún criterio, **NO entregar**. Completar primero.
 

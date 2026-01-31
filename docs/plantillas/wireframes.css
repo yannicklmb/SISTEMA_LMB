@@ -1,0 +1,452 @@
+/**
+ * Wireframes CSS - Sistema LMB
+ * Estilos para wireframes visuales HTML
+ * Version: 1.0.0
+ */
+
+:root {
+  /* Colores wireframe */
+  --wireframe-bg: #f5f5f5;
+  --wireframe-box: #ffffff;
+  --wireframe-border: #333333;
+  --wireframe-text: #666666;
+  --wireframe-text-dark: #333333;
+  --wireframe-primary: #0066cc;
+  --wireframe-cta: #ff6b00;
+  --wireframe-note: #fffacd;
+  --wireframe-note-border: #ffd700;
+  --wireframe-flow-bg: #f0f8ff;
+  --wireframe-flow-border: #4682b4;
+  
+  /* Espaciado */
+  --space-xs: 5px;
+  --space-s: 10px;
+  --space-m: 15px;
+  --space-l: 20px;
+  --space-xl: 30px;
+  --space-2xl: 40px;
+}
+
+/* Reset y base */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Courier New', 'Courier', monospace;
+  background: var(--wireframe-bg);
+  padding: var(--space-l);
+  margin: 0;
+  color: var(--wireframe-text-dark);
+  line-height: 1.6;
+}
+
+/* Header del wireframe */
+.wireframe-header {
+  background: white;
+  border: 2px solid var(--wireframe-border);
+  padding: var(--space-l);
+  margin-bottom: var(--space-xl);
+}
+
+.wireframe-header h1 {
+  margin: 0 0 var(--space-m) 0;
+  font-size: 28px;
+  color: var(--wireframe-primary);
+}
+
+.wireframe-header p {
+  margin: var(--space-xs) 0;
+}
+
+.wireframe-header nav {
+  margin-top: var(--space-m);
+  padding-top: var(--space-m);
+  border-top: 1px solid #ddd;
+}
+
+.wireframe-header nav a {
+  color: var(--wireframe-primary);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.wireframe-header nav a:hover {
+  text-decoration: underline;
+}
+
+/* Contenedor principal */
+.wireframe-container {
+  background: var(--wireframe-box);
+  border: 3px solid var(--wireframe-border);
+  padding: var(--space-l);
+  margin: var(--space-l) 0;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Secciones */
+.wireframe-section {
+  border: 2px dashed var(--wireframe-border);
+  padding: var(--space-m);
+  margin: var(--space-l) 0;
+  position: relative;
+  background: white;
+}
+
+.wireframe-section::before {
+  content: attr(data-section);
+  position: absolute;
+  top: -12px;
+  left: var(--space-s);
+  background: var(--wireframe-bg);
+  padding: 0 var(--space-xs);
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--wireframe-text);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Hero */
+.wireframe-hero {
+  background: repeating-linear-gradient(
+    45deg,
+    #ccc,
+    #ccc 10px,
+    #ddd 10px,
+    #ddd 20px
+  );
+  padding: var(--space-2xl) var(--space-l);
+  text-align: center;
+  border: 3px solid var(--wireframe-border);
+  margin: var(--space-l) 0;
+}
+
+/* Headings */
+.wireframe-h1 {
+  font-size: 48px;
+  font-weight: bold;
+  border: 3px solid var(--wireframe-primary);
+  padding: var(--space-l);
+  margin: var(--space-s) 0;
+  background: white;
+  color: var(--wireframe-primary);
+}
+
+.wireframe-h2 {
+  font-size: 32px;
+  font-weight: bold;
+  border: 2px solid var(--wireframe-border);
+  padding: var(--space-m);
+  margin: var(--space-m) 0;
+  background: white;
+  color: var(--wireframe-text-dark);
+}
+
+.wireframe-h3 {
+  font-size: 24px;
+  font-weight: bold;
+  border: 1px solid var(--wireframe-border);
+  padding: var(--space-s);
+  margin: var(--space-s) 0;
+  background: #f9f9f9;
+  color: var(--wireframe-text-dark);
+}
+
+/* Texto */
+.wireframe-text {
+  border: 1px solid var(--wireframe-border);
+  padding: var(--space-m);
+  margin: var(--space-s) 0;
+  background: white;
+  min-height: 60px;
+  font-size: 14px;
+  color: var(--wireframe-text);
+}
+
+/* CTA */
+.wireframe-cta {
+  display: inline-block;
+  border: 3px solid var(--wireframe-cta);
+  background: var(--wireframe-cta);
+  color: white;
+  padding: var(--space-m) var(--space-2xl);
+  margin: var(--space-l) 0;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 16px;
+  text-decoration: none;
+  font-family: 'Courier New', monospace;
+}
+
+.wireframe-cta:hover {
+  background: #ff8c33;
+  border-color: #ff8c33;
+}
+
+.wireframe-cta-secondary {
+  background: white;
+  color: var(--wireframe-cta);
+  border: 3px solid var(--wireframe-cta);
+}
+
+.wireframe-cta-secondary:hover {
+  background: #fff5f0;
+}
+
+/* Grid */
+.wireframe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-l);
+  margin: var(--space-l) 0;
+}
+
+.wireframe-grid-2 {
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
+
+.wireframe-grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.wireframe-grid-4 {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+/* Cards */
+.wireframe-card {
+  border: 2px solid var(--wireframe-border);
+  padding: var(--space-m);
+  background: white;
+}
+
+.wireframe-card h3 {
+  margin-top: var(--space-s);
+  margin-bottom: var(--space-s);
+  font-size: 18px;
+  border: none;
+  padding: 0;
+  background: transparent;
+}
+
+/* Imágenes */
+.wireframe-image {
+  background: repeating-linear-gradient(
+    45deg,
+    #e0e0e0,
+    #e0e0e0 10px,
+    #f0f0f0 10px,
+    #f0f0f0 20px
+  );
+  border: 2px solid var(--wireframe-border);
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--wireframe-text);
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  padding: var(--space-m);
+  margin: var(--space-s) 0;
+}
+
+.wireframe-image-small {
+  min-height: 100px;
+}
+
+.wireframe-image-hero {
+  min-height: 400px;
+}
+
+/* Iconos */
+.wireframe-icon {
+  width: 64px;
+  height: 64px;
+  border: 2px solid var(--wireframe-border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-m) auto;
+  background: #f0f0f0;
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--wireframe-text);
+}
+
+/* Notas */
+.wireframe-note {
+  background: var(--wireframe-note);
+  border-left: 4px solid var(--wireframe-note-border);
+  padding: var(--space-m);
+  margin: var(--space-m) 0;
+  font-size: 13px;
+  font-style: italic;
+  color: #666;
+}
+
+.wireframe-note strong {
+  display: block;
+  margin-bottom: var(--space-xs);
+  font-style: normal;
+  color: #333;
+}
+
+.wireframe-note-arch {
+  background: #e8f4ff;
+  border-left-color: #2196f3;
+}
+
+.wireframe-note-copy {
+  background: #fff8e8;
+  border-left-color: #ff9800;
+}
+
+.wireframe-note-dev {
+  background: #f0e8ff;
+  border-left-color: #9c27b0;
+}
+
+/* Flujo de conversión */
+.wireframe-flow {
+  display: flex;
+  align-items: center;
+  margin: var(--space-xl) 0;
+  padding: var(--space-l);
+  background: var(--wireframe-flow-bg);
+  border: 2px solid var(--wireframe-flow-border);
+  overflow-x: auto;
+}
+
+.wireframe-flow-step {
+  flex: 1;
+  text-align: center;
+  padding: var(--space-m);
+  min-width: 150px;
+}
+
+.wireframe-flow-step strong {
+  display: block;
+  margin-bottom: var(--space-xs);
+  color: var(--wireframe-primary);
+  font-size: 16px;
+}
+
+.wireframe-flow-arrow {
+  font-size: 32px;
+  padding: 0 var(--space-m);
+  color: var(--wireframe-flow-border);
+  font-weight: bold;
+}
+
+/* Layout helpers */
+.wireframe-row {
+  display: flex;
+  gap: var(--space-l);
+  margin: var(--space-l) 0;
+}
+
+.wireframe-col {
+  flex: 1;
+}
+
+.wireframe-col-2 {
+  flex: 2;
+}
+
+.wireframe-col-3 {
+  flex: 3;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+/* Footer */
+.wireframe-footer {
+  background: white;
+  border: 2px solid var(--wireframe-border);
+  padding: var(--space-l);
+  margin-top: var(--space-xl);
+  text-align: center;
+  font-size: 13px;
+  color: var(--wireframe-text);
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  body {
+    padding: var(--space-s);
+  }
+
+  .wireframe-grid,
+  .wireframe-grid-2,
+  .wireframe-grid-3,
+  .wireframe-grid-4 {
+    grid-template-columns: 1fr;
+  }
+  
+  .wireframe-h1 {
+    font-size: 32px;
+    padding: var(--space-m);
+  }
+
+  .wireframe-h2 {
+    font-size: 24px;
+  }
+
+  .wireframe-h3 {
+    font-size: 18px;
+  }
+
+  .wireframe-hero {
+    padding: var(--space-l) var(--space-s);
+  }
+
+  .wireframe-flow {
+    flex-direction: column;
+  }
+
+  .wireframe-flow-arrow {
+    transform: rotate(90deg);
+    padding: var(--space-s) 0;
+  }
+
+  .wireframe-row {
+    flex-direction: column;
+  }
+
+  .wireframe-cta {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Print styles */
+@media print {
+  body {
+    background: white;
+  }
+
+  .wireframe-container {
+    border: 2px solid #333;
+  }
+
+  .wireframe-header nav {
+    display: none;
+  }
+}

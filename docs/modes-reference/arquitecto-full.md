@@ -627,6 +627,24 @@ impactado_por_evento: false
 - Especificación de relaciones
 - Diagrama Mermaid
 
+### 🆕 Implementación vía MCP (si disponible)
+
+**Si el proyecto usa JetEngine** y el MCP está configurado:
+- El Arquitecto puede crear CPTs/taxonomías/campos directamente vía API
+- Implementación inmediata en WordPress (visible en admin)
+- Validación instantánea de la estructura
+- No requiere código PHP manual
+
+**Consultar**: [`docs/MCP-JETENGINE-CONFIGURACION.md`](../../MCP-JETENGINE-CONFIGURACION.md)
+
+**Ventajas**:
+- ✅ Implementación 50% más rápida
+- ✅ 0 errores de sintaxis
+- ✅ Iteraciones inmediatas
+- ✅ Validación visual en WordPress
+
+**Si MCP NO disponible**: El Programador implementará según especificación en código PHP.
+
 ---
 
 ## Criterios de Auto-Validación

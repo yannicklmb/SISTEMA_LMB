@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roadmap - [Nombre del Proyecto]</title>
+  <link rel="stylesheet" href="roadmap.css">
+</head>
+<body>
+
+  <!-- Header con datos del proyecto -->
+  <header class="roadmap-header">
+    <h1>🗺️ Roadmap - [Nombre del Proyecto]</h1>
+    <div class="project-info">
+      <div class="info-card">
+        <strong>Cliente</strong>
+        [Nombre del Cliente]
+      </div>
+      <div class="info-card">
+        <strong>Fecha Inicio</strong>
+        [YYYY-MM-DD]
+      </div>
+      <div class="info-card">
+        <strong>Lanzamiento Estimado</strong>
+        [YYYY-MM-DD]
+      </div>
+      <div class="info-card status-ok">
+        <strong>Estado</strong>
+        ✅ En marcha
+      </div>
+    </div>
+  </header>
+
+  <!-- Métricas del proyecto -->
+  <section class="metrics-dashboard">
+    <h2>📊 Estado del Proyecto</h2>
+    
+    <div class="metrics-grid">
+      
+      <!-- Progreso global -->
+      <div class="metric-card">
+        <h3>Progreso Global</h3>
+        <div class="progress-circle">
+          <svg viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="45" fill="none" stroke="#e0e0e0" stroke-width="10"/>
+            <circle cx="50" cy="50" r="45" fill="none" stroke="#4caf50" stroke-width="10"
+                    stroke-dasharray="282.7" stroke-dashoffset="141.35" 
+                    transform="rotate(-90 50 50)"/>
+            <text x="50" y="55" text-anchor="middle" font-size="20" font-weight="bold" fill="#333">45%</text>
+          </svg>
+        </div>
+        <p class="metric-detail">7 de 15 fases completadas</p>
+      </div>
+
+      <!-- Artefactos -->
+      <div class="metric-card">
+        <h3>Artefactos</h3>
+        <div class="metric-value">8 <span class="metric-label">vigentes</span></div>
+        <div class="metric-value secondary">2 <span class="metric-label">en revisión</span></div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 80%"></div>
+        </div>
+        <p class="metric-detail">80% completitud</p>
+      </div>
+
+      <!-- Deuda técnica -->
+      <div class="metric-card">
+        <h3>Deuda Técnica</h3>
+        <div class="metric-badge badge-low">Baja</div>
+        <p class="metric-detail" style="margin-top: 15px;">0 bloqueos activos</p>
+        <p class="metric-detail">Sin dependencias críticas</p>
+      </div>
+
+      <!-- Timeline -->
+      <div class="metric-card">
+        <h3>Timeline</h3>
+        <div class="metric-value">+3 <span class="metric-label">días desviación</span></div>
+        <div class="progress-bar">
+          <div class="progress-fill warning" style="width: 70%"></div>
+        </div>
+        <p class="metric-detail">7 de 10 semanas transcurridas</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Timeline de fases -->
+  <section class="phases-timeline">
+    <h2>🗓️ Timeline de Fases</h2>
+    
+    <div class="timeline">
+      
+      <!-- Fase 0: Setup -->
+      <div class="timeline-item completed">
+        <div class="timeline-marker">✓</div>
+        <div class="timeline-content">
+          <div class="phase-card phase-completed">
+            <h3>Fase 0: Setup del Proyecto</h3>
+            <p class="phase-dates">📅 10-12 Ene 2025 • Completada</p>
+            <div class="phase-tags">
+              <span class="tag tag-role">Implementador</span>
+              <span class="tag tag-status">Completa</span>
+            </div>
+            <div class="phase-progress">
+              <div class="progress-bar small">
+                <div class="progress-fill" style="width: 100%"></div>
+              </div>
+            </div>
+            <details>
+              <summary>Ver detalles de la fase</summary>
+              <ul class="task-list">
+                <li class="task-done">✓ Conexión FTP configurada</li>
+                <li class="task-done">✓ WordPress instalado</li>
+                <li class="task-done">✓ Modo "próximamente" activado</li>
+                <li class="task-done">✓ Robots.txt configurado (noindex temporal)</li>
+              </ul>
+              <p><strong>Artefactos:</strong> setup.md</p>
+              <p><strong>Duración real:</strong> 2 días</p>
+            </details>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fase 1: Estrategia -->
+      <div class="timeline-item completed">
+        <div class="timeline-marker">✓</div>
+        <div class="timeline-content">
+          <div class="phase-card phase-completed">
+            <h3>Fase 1: Estrategia</h3>
+            <p class="phase-dates">📅 13-15 Ene 2025 • Completada</p>
+            <div class="phase-tags">
+              <span class="tag tag-role">Estratega</span>
+              <span class="tag tag-status">Completa</span>
+            </div>
+            <div class="phase-progress">
+              <div class="progress-bar small">
+                <div class="progress-fill" style="width: 100%"></div>
+              </div>
+            </div>
+            <details>
+              <summary>Ver detalles de la fase</summary>
+              <ul class="task-list">
+                <li class="task-done">✓ Briefing completado</li>
+                <li class="task-done">✓ 3+ perfiles de audiencia documentados</li>
+                <li class="task-done">✓ Elevator pitch creado (5 componentes)</li>
+                <li class="task-done">✓ Análisis de competencia (3+)</li>
+                <li class="task-done">✓ Mapping servicios → perfiles (100%)</li>
+              </ul>
+              <p><strong>Artefactos:</strong> estrategia.md (vigente)</p>
+              <p><strong>Duración real:</strong> 3 días</p>
+            </details>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fase 2a: Planificación Inicial -->
+      <div class="timeline-item completed">
+        <div class="timeline-marker">✓</div>
+        <div class="timeline-content">
+          <div class="phase-card phase-completed">
+            <h3>Fase 2a: Planificación Inicial (URLs)</h3>
+            <p class="phase-dates">📅 16-17 Ene 2025 • Completada</p>
+            <div class="phase-tags">
+              <span class="tag tag-role">Planificador</span>
+              <span class="tag tag-status">Completa</span>
+            </div>
+            <div class="phase-progress">
+              <div class="progress-bar small">
+                <div class="progress-fill" style="width: 100%"></div>
+              </div>
+            </div>
+            <details>
+              <summary>Ver detalles de la fase</summary>
+              <ul class="task-list">
+                <li class="task-done">✓ Keyword research completado</li>
+                <li class="task-done">✓ CSV inicial con URLs y keywords</li>
+                <li class="task-done">✓ Templates pendientes marcados [POR_DEFINIR]</li>
+                <li class="task-done">✓ Requisitos de conversión definidos</li>
+              </ul>
+              <p><strong>Artefactos:</strong> planificacion-urls-inicial.csv</p>
+              <p><strong>Nota:</strong> Se completará en Fase 2b después de arquitectura</p>
+            </details>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fase 4: Stack -->
+      <div class="timeline-item completed">
+        <div class="timeline-marker">✓</div>
+        <div class="timeline-content">
+          <div class="phase-card phase-completed">
+            <h3>Fase 4: Definición de Stack</h3>
+            <p class="phase-dates">📅 18-19 Ene 2025 • Completada</p>
+            <div class="phase-tags">
+              <span class="tag tag-role">Implementador</span>
+              <span class="tag tag-status">Completa</span>
+            </div>
+            <div class="phase-progress">
+              <div class="progress-bar small">
+                <div class="progress-fill" style="width: 100%"></div>
+              </div>
+            </div>
+            <details>
+              <summary>Ver detalles de la fase</summary>
+              <ul class="task-list">
+                <li class="task-done">✓ Builder/tema decidido: Bricks</li>
+                <li class="task-done">✓ Plugin propio definido</li>
+                <li class="task-done">✓ JetEngine incluido (CPTs/campos)</li>
+                <li class="task-done">✓ Plugins complementarios seleccionados</li>
+              </ul>
+              <p><strong>Artefactos:</strong> stack.md (vigente)</p>
+              <p><strong>Stack elegido:</strong> Bricks + JetEngine + Plugin custom</p>
+            </details>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fase 5: Arquitectura -->
+      <div class="timeline-item in-progress">
+        <div class="timeline-marker">⏳</div>
+        <div class="timeline-content">
+          <div class="phase-card phase-in-progress">
+            <h3>Fase 5: Arquitectura (Modelo de Datos)</h3>
+            <p class="phase-dates">📅 20-22 Ene 2025 • En curso</p>
+            <div class="phase-tags">
+              <span class="tag tag-role">Arquitecto</span>
+              <span class="tag tag-status-progress">En curso</span>
+            </div>
+            <div class="phase-progress">
+              <div class="progress-bar small">
+                <div class="progress-fill in-progress" style="width: 60%"></div>
+              </div>
+              <span class="progress-label">60%</span>
+            </div>
+            <details>
+              <summary>Ver detalles de la fase</summary>
+              <ul class="task-list">
+                <li class="task-done">✓ Análisis de 4 pasos ejecutado</li>
+                <li class="task-done">✓ Entidades identificadas</li>
+                <li class="task-done">✓ CPTs definidos según dominio</li>
+                <li>⏳ Campos personalizados en proceso</li>
+                <li>⏳ Relaciones pendientes</li>
+              </ul>
+              <p><strong>Artefactos:</strong> arquitectura.md (en progreso)</p>
+              <p><strong>Tiempo estimado restante:</strong> 1 día</p>
+            </details>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fase 2b: Planificación Completa -->
+      <div class="timeline-item pending">
+        <div class="timeline-marker">○</div>
+        <div class="timeline-content">
+          <div class="phase-card phase-pending">
+            <h3>Fase 2b: Planificación Completa (Templates)</h3>
+            <p class="phase-dates">📅 23 Ene 2025 • Estimado</p>
+            <div class="phase-tags">
+              <span class="tag tag-role">Planificador</span>
+              <span class="tag tag-status-pending">Pendiente</span>
+            </div>
+            <p class="dependency-note">⚠️ Bloqueada por: Fase 5 (Arquitectura)</p>
+            <details>
+              <summary>Ver detalles de la fase</summary>
+              <ul class="task-list">
+                <li>○ Actualizar CSV con templates de arquitectura</li>
+                <li>○ Reemplazar [POR_DEFINIR] con templates reales</li>
+                <li>○ Validar cobertura 100%</li>
+              </ul>
+              <p><strong>Artefactos:</strong> planificacion-urls.csv (final)</p>
+            </details>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fase 3: Wireframing -->
+      <div class="timeline-item pending">
+        <div class="timeline-marker">○</div>
+        <div class="timeline-content">
+          <div class="phase-card phase-pending">
+            <h3>Fase 3: Wireframing</h3>
+            <p class="phase-dates">📅 24-26 Ene 2025 • Estimado</p>
+            <div class="phase-tags">
+              <span class="tag tag-role">Wireframer</span>
+              <span class="tag tag-status-pending">Pendiente</span>
+            </div>
+            <p class="dependency-note">⚠️ Bloqueada por: Fase 2b (Planificación Completa)</p>
+            <details>
+              <summary>Ver detalles de la fase</summary>
+              <ul class="task-list">
+                <li>○ Wireframes de todos los templates</li>
+                <li>○ Camino al CTA por template</li>
+                <li>○ Notas HTML semánticas</li>
+                <li>○ Notas para copywriter</li>
+                <li>○ Versión visual HTML generada</li>
+              </ul>
+              <p><strong>Artefactos:</strong> wireframes.md + wireframes/*.html</p>
+            </details>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fase 6: Diseño -->
+      <div class="timeline-item pending">
+        <div class="timeline-marker">○</div>
+        <div class="timeline-content">
+          <div class="phase-card phase-pending">
+            <h3>Fase 6: Diseño</h3>
+            <p class="phase-dates">📅 27-29 Ene 2025 • Estimado</p>
+            <div class="phase-tags">
+              <span class="tag tag-role">Diseñador</span>
+              <span class="tag tag-status-pending">Pendiente</span>
+            </div>
+            <details>
+              <summary>Ver detalles de la fase</summary>
+              <ul class="task-list">
+                <li>○ Paleta de colores definida (6+)</li>
+                <li>○ Contraste WCAG AA verificado</li>
+                <li>○ Sistema de componentes visuales</li>
+                <li>○ Diferenciación vs competencia</li>
+              </ul>
+              <p><strong>Artefactos:</strong> diseno.md</p>
+            </details>
+          </div>
+        </div>
+      </div>
+
+      <!-- Más fases pendientes... -->
+      <div class="timeline-item pending">
+        <div class="timeline-marker">○</div>
+        <div class="timeline-content">
+          <div class="phase-card phase-pending">
+            <h3>Fases 7-15: Pendientes</h3>
+            <p class="phase-dates">📅 Fechas por estimar</p>
+            <p class="metric-detail">
+              • Fase 7: Inserción contenido base<br>
+              • Fase 8: Implementación plugins<br>
+              • Fase 9: Framework CSS<br>
+              • Fase 10: Maquetación<br>
+              • Fase 11: Seguridad<br>
+              • Fase 12: Optimización WPO<br>
+              • Fase 13: Testing<br>
+              • Fase 14: Pre-lanzamiento<br>
+              • Fase 15: Post-lanzamiento
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Eventos del proyecto -->
+  <section class="events-section">
+    <h2>📌 Eventos del Proyecto</h2>
+    
+    <p style="color: #666; margin-bottom: 20px;">
+      Registro de cambios de negocio o alcance durante el proyecto
+    </p>
+
+    <!-- Evento cerrado -->
+    <div class="event-card">
+      <div class="event-header">
+        <h3>EVT-001: Añadir menú degustación</h3>
+        <span class="metric-badge badge-closed">Cerrado</span>
+      </div>
+      <p class="event-date">📅 17 Ene 2025 • Comunicado por: Cliente</p>
+      <p class="event-description">
+        El cliente solicita añadir sección de "Menú Degustación" con 3 opciones diferentes
+        (clásico, premium, vegano). No estaba en el briefing inicial.
+      </p>
+      <div class="event-impact">
+        <strong>Artefactos impactados:</strong>
+        <ul>
+          <li>estrategia.md → actualizado (nuevo servicio)</li>
+          <li>planificacion-urls-inicial.csv → actualizado (nueva URL)</li>
+        </ul>
+      </div>
+      <p class="event-resolution">
+        <strong>✅ Resolución:</strong> CPT "menu-degustacion" será añadido en arquitectura.
+        +1 día al timeline.
+      </p>
+      <p class="event-date">📅 Cerrado: 18 Ene 2025</p>
+    </div>
+
+    <!-- Sin eventos activos -->
+    <div style="background: #f0f8ff; padding: 20px; border-radius: 8px; text-align: center; color: #666;">
+      <p>✅ No hay eventos activos actualmente</p>
+    </div>
+
+  </section>
+
+  <!-- Riesgos y bloqueos -->
+  <section class="events-section">
+    <h2>⚠️ Riesgos y Bloqueos</h2>
+    
+    <div style="background: #fff3e0; border-left: 6px solid #ff9800; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+      <h3 style="margin: 0 0 10px 0; color: #e65100;">Riesgo Identificado: Retraso en entrega de contenidos</h3>
+      <p><strong>Impacto:</strong> Medio • <strong>Probabilidad:</strong> Media</p>
+      <p>
+        Cliente debe proporcionar textos finales antes de la Fase 7. Si no lo hace a tiempo,
+        podría retrasar maquetación.
+      </p>
+      <p style="margin-top: 10px;">
+        <strong>Mitigación:</strong> Usar textos placeholder y maquetar estructura.
+        Contenido final se insertará después.
+      </p>
+    </div>
+
+    <div style="background: #e8f5e9; border-left: 6px solid #4caf50; padding: 20px; border-radius: 8px;">
+      <p style="margin: 0;">✅ <strong>No hay bloqueos activos</strong></p>
+      <p style="margin: 10px 0 0 0; color: #666;">Todas las dependencias están resueltas.</p>
+    </div>
+
+  </section>
+
+  <!-- MCPs Activos (nueva sección) -->
+  <section class="events-section">
+    <h2>🔌 MCPs Activos</h2>
+    
+    <div style="background: #e3f2fd; border-left: 6px solid #2196f3; padding: 20px; border-radius: 8px;">
+      <h3 style="margin: 0 0 10px 0; color: #1565c0;">MCP JetEngine Configurado</h3>
+      <p><strong>Estado:</strong> ✅ Activo</p>
+      <p><strong>URL:</strong> http://localhost/proyecto/wp-json/jet-engine/v1/mcp/</p>
+      <p><strong>Activado en Fase:</strong> 4 (Stack)</p>
+      <p style="margin-top: 10px; color: #666;">
+        El MCP permite al Arquitecto y Programador crear CPTs, taxonomías, campos y relaciones
+        directamente vía API, acelerando la implementación.
+      </p>
+    </div>
+
+  </section>
+
+  <!-- Próximos hitos -->
+  <section class="events-section">
+    <h2>🎯 Próximos Hitos</h2>
+    
+    <div class="metrics-grid" style="margin-top: 20px;">
+      <div class="metric-card">
+        <h3>Hito 1</h3>
+        <p><strong>Arquitectura Completa</strong></p>
+        <p class="event-date">📅 22 Ene 2025</p>
+        <p style="font-size: 13px; color: #666;">Entregable: arquitectura.md validado</p>
+      </div>
+
+      <div class="metric-card">
+        <h3>Hito 2</h3>
+        <p><strong>Wireframes Completos</strong></p>
+        <p class="event-date">📅 26 Ene 2025</p>
+        <p style="font-size: 13px; color: #666;">Entregable: wireframes visuales HTML</p>
+      </div>
+
+      <div class="metric-card">
+        <h3>Hito 3</h3>
+        <p><strong>Maquetación Completa</strong></p>
+        <p class="event-date">📅 15 Feb 2025</p>
+        <p style="font-size: 13px; color: #666;">Entregable: Sitio maquetado funcional</p>
+      </div>
+
+      <div class="metric-card" style="background: linear-gradient(135deg, #0066cc 0%, #004a99 100%); color: white;">
+        <h3 style="color: white;">Hito Final</h3>
+        <p style="color: white;"><strong>🚀 Lanzamiento</strong></p>
+        <p class="event-date" style="color: rgba(255,255,255,0.9);">📅 15 Mar 2025</p>
+        <p style="font-size: 13px; color: rgba(255,255,255,0.8);">Entregable: Sitio en producción</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Footer -->
+  <footer class="roadmap-footer">
+    <p><strong>Última actualización:</strong> [YYYY-MM-DD HH:MM] | <strong>Actualizado por:</strong> Jefe de Proyectos</p>
+    <p><strong>Frecuencia de actualización:</strong> Después de cada fase completada</p>
+    <p style="margin-top: 15px; font-size: 12px; opacity: 0.8;">
+      Este roadmap es un documento vivo. Para la versión textual detallada, consultar roadmap.md
+    </p>
+  </footer>
+
+</body>
+</html>
