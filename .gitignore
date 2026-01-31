@@ -182,9 +182,14 @@ temp/
 !/docs/ideas-mejora.md
 
 # Mantener Custom Modes y Skills (parte del template)
-!/.roo/modes/*.md
+# Custom Modes en formato correcto (.roomodes)
+!/.roomodes
+
+# Documentación de referencia de modos (commitear)
+!/docs/modes-reference/*.md
+
+# Skills (mantener)
 !/.roo/skills/**/*.md
-!/.roo/config.json
 
 # Mantener documentación del template
 !/README.md
