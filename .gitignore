@@ -1,0 +1,201 @@
+# Sistema LMB - Template
+# Archivo .gitignore para excluir archivos sensibles y temporales
+
+# ============================================
+# Configuraciones locales y sensibles
+# ============================================
+
+# Credenciales (NUNCA commitear)
+**/credenciales.txt
+**/passwords.txt
+**/.env.local
+**/.env.production
+**/wp-config.php
+**/ftp-credentials.json
+
+# Backups de bases de datos
+*.sql
+*.sql.gz
+*.sql.zip
+backups/
+
+# ============================================
+# WordPress Core (si se clona con WP)
+# ============================================
+
+# WordPress core (si se incluye)
+/wp-admin/
+/wp-includes/
+/wp-content/themes/twenty*/
+/wp-content/plugins/akismet/
+/wp-content/plugins/hello.php
+
+# Uploads (archivos grandes)
+/wp-content/uploads/
+
+# Cache
+/wp-content/cache/
+/wp-content/w3tc-config/
+/wp-content/wp-cache-config.php
+
+# ============================================
+# Archivos del sistema operativo
+# ============================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.directory
+
+# ============================================
+# Editores e IDEs
+# ============================================
+
+# VSCode
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# JetBrains (PHPStorm, WebStorm)
+.idea/
+*.iml
+*.iws
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# ============================================
+# Node.js (si se usa para compilación)
+# ============================================
+
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# ============================================
+# Archivos temporales y logs
+# ============================================
+
+# Logs
+*.log
+logs/
+*.log.*
+
+# Temporales
+tmp/
+temp/
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# ============================================
+# Compilación y builds
+# ============================================
+
+/dist/
+/build/
+*.min.js
+*.min.css
+
+# Excluir pero mantener estructura con .gitkeep
+!**/.gitkeep
+
+# ============================================
+# Archivos específicos del proyecto
+# ============================================
+
+# Roadmap del proyecto (cada proyecto tiene el suyo)
+/roadmap.md
+
+# Artefactos de proyectos específicos (no del template)
+/docs/estrategia.md
+/docs/planificacion-urls.csv
+/docs/wireframes.md
+/docs/stack.md
+/docs/arquitectura.md
+/docs/diseno.md
+/docs/contenidos.md
+/docs/guia-estilos.html
+/docs/estilos.css
+/docs/framework-css.md
+/docs/reporte-seguridad.md
+/docs/reporte-wpo.md
+/docs/setup.md
+/docs/implementacion-plugins.md
+/docs/insercion-contenido.md
+/docs/maquetacion.md
+/docs/pre-lanzamiento.md
+
+# Reportes de testing de proyectos
+/docs/testing/plan.md
+/docs/testing/checklist.md
+/docs/testing/bugs.md
+/docs/testing/reportes/*.md
+/docs/testing/evidencias/*
+
+# Eventos y validaciones de proyectos
+/docs/eventos/*.md
+/docs/validaciones/*.md
+
+# Post-lanzamiento de proyectos
+/docs/post-lanzamiento/*.md
+
+# Mejora continua de proyectos
+/docs/mejora-continua/*.md
+
+# Propuestas de proyectos
+/docs/propuestas/pendientes/*.md
+/docs/propuestas/aprobadas/*.md
+
+# ============================================
+# Mantener templates y estructura
+# ============================================
+
+# Mantener templates (estos SÍ se commitean)
+!/docs/plantillas/*.template.md
+!/docs/plantillas/*.template.csv
+!/roadmap.template.md
+
+# Mantener sistema-lmb.md (fuente de verdad)
+!/docs/sistema-lmb.md
+
+# Mantener ideas-mejora.md (gestión del sistema)
+!/docs/ideas-mejora.md
+
+# Mantener Custom Modes y Skills (parte del template)
+!/.roo/modes/*.md
+!/.roo/skills/**/*.md
+!/.roo/config.json
+
+# Mantener documentación del template
+!/README.md
+!/CHANGELOG.md
+!/plans/*.md
+
+# ============================================
+# Notas
+# ============================================
+
+# Este .gitignore está diseñado para:
+# 1. TEMPLATE: Commitear estructura, modes, skills, templates
+# 2. PROYECTOS: Excluir artefactos específicos de cada cliente
+# 3. SEGURIDAD: Nunca commitear credenciales ni datos sensibles

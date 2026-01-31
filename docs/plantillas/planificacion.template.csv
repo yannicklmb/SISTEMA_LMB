@@ -1,0 +1,6 @@
+keyword_intencion,url_destino,template_wp,titulo_seo,requisitos_conversion,cta_texto,cta_destino
+"[keyword principal 1]","[/url-destino/]","[page|single-cpt|archive-tax]","[Título SEO 50-60 chars]","Diferenciación: [qué nos hace únicos], Pain point: [problema que resuelve], Prueba social: [casos/cifras], Fricción: [qué elimina miedo]","[CTA específico en 2da persona]","[/contacto/|#formulario|tel:XXX|https://wa.me/]"
+"[keyword long-tail relacionada]","[/url-destino/]","[mismo template]","[Título SEO variante]","[Mismos requisitos o adaptados]","[Mismo CTA]","[Mismo destino]"
+"inicio|home|página principal","/","page","[Nombre Negocio] - [Propuesta de Valor Única en 50 chars]","Diferenciación: [principal], Pain point: [problema común], Prueba social: [cifra impactante], Fricción: [garantía/gratis]","[CTA principal del negocio]","/contacto/"
+"contacto|formulario contacto","/contacto/","page","Contacto - [Nombre Negocio]","Diferenciación: N/A, Pain point: Necesita contactar, Prueba social: Respuesta en 24h, Fricción: Sin compromiso","Enviar mensaje",""
+"sobre nosotros|quiénes somos|acerca de","/sobre-nosotros/","page","Sobre Nosotros - [Nombre Negocio]","Diferenciación: Historia y valores, Pain point: Necesita conocer equipo, Prueba social: Años experiencia, Fricción: Transparencia","Conoce nuestros servicios","/servicios/"
